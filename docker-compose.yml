@@ -1,0 +1,26 @@
+version: '3.7'
+
+
+services:
+  web:
+    build: .
+    #command: python /afyatoon_web/manage.py runserver 0.0.0.0:8000
+    command: gunicorn afyatoon.wsgi:application -b 0.0.0.0:8000
+    volumes:
+      - .:/afyatoon_web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12
+    environment:
+      - POSTGRES_USER=afyatoon_admin
+      - POSTGRES_PASSWORD=afyatoon
+      - POSTGRES_DB=afyatoon_web
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
