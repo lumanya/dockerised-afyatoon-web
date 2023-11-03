@@ -30,7 +30,9 @@ urlpatterns = [
     path('documents/', include(wagtaildocs_urls)),
 
     # User management
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
+
+    # Local apps
     path('pages/', include('pages.urls')),
 
     path('', include(wagtail_urls)),

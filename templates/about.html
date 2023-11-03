@@ -1,0 +1,318 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block title %}{% endblock %}
+
+{% block heading %}
+<div class="pxp-header fixed-top pxp-animate">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-5 col-md-2">
+                <a href="/" class="pxp-logo text-decoration-none"><img class="pxp-logo"
+                        src="{% static 'images/logo2.png' %}" alt=""></a>
+
+            </div>
+            <div class="col-2 col-md-8 text-center">
+                <ul class="pxp-nav list-inline">
+                    <li class="list-inline-item">
+                        <a href="/">Home</a>
+
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Afyatoon Library</a>
+                        <ul class="pxp-nav-sub rounded-lg">
+                            <li><a href="/comic-series">Comics</a></li>
+                            <li><a href="/animation-series">Animations</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Therapist Hub</a>
+                        <ul class="pxp-nav-sub rounded-lg">
+                            <li><a href="#">For Therapist</a></li>
+                            <li><a href="#">Find Therapist</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Discover</a>
+                        <ul class="pxp-nav-sub rounded-lg">
+                            <li><a href="/">Community</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{% url 'about' %}">About Us</a>
+
+                    </li>
+
+                    <li class="list-inline-item pxp-is-last"><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li class="list-inline-item pxp-has-btns">
+                        <div class="pxp-user-btns">
+                            <a href="#" class="pxp-user-btns-signup pxp-signup-trigger">Sign Up</a>
+                            <a href="#" class="pxp-user-btns-login pxp-signin-trigger">Sign In</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-5 col-md-2 text-right">
+                <a href="javascript:void(0);" class="pxp-header-nav-trigger"><span class="fa fa-bars"></span></a>
+                <a href="javascript:void(0);" class="pxp-header-user pxp-signin-trigger"><span
+                        class="fa fa-user-o"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock heading %}
+
+
+{% block content %}
+
+<div class="pxp-hero pxp-hero-small vh-50">
+    <div class="pxp-hero-bg pxp-cover"
+        style="background-image: url('{% static 'images/d12-home-hero-1920x1280.jpg' %}');"></div>
+    <div class="pxp-hero-opacity" style="background: rgba(0,0,0,0.1);"></div>
+    <div class="pxp-hero-caption pxp-hero-caption-bottom-left pxp-is-small container ">
+        <h1 class="text-white">We digitize health content</h1>
+        <p class="pxp-text-light text-white mb-0">Embracing the art of Co-creation, creativity, simplicity and content
+            diversity.</p>
+    </div>
+</div>
+
+<div class="container mt-100">
+    <h2 class="pxp-section-h2">Our Projects</h2>
+    <p class="pxp-text-light">Get to know Afyatoon projects</p>
+
+</div>
+
+
+
+<div class="pxp-cta-3 mt-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="pxp-cta-3-image pxp-cover rounded-lg"
+                    style="background-image: url('{% static 'images/cta-section-1.jpg' %}');"></div>
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <h2 class="pxp-section-h2 mt-3 mt-md-5 mt-lg-0">Afyatoon</h2>
+                <p class="pxp-text-light mt-3 mt-lg-4">Afyatoon is a media-based innovative project; it uses visual art
+                    technology to present health information in a story based, educative and entertaining manner to the
+                    targeted audience on digital basis through social media platforms, interactive websites and local
+                    community cinema showcasing.</p>
+                <a href="#" class="pxp-primary-cta text-uppercase mt-3 mt-md-5 pxp-animate">Learn more</a>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+</div>
+
+<div class="pxp-cta-3 mt-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4">
+                <h2 class="pxp-section-h2 mt-3 mt-md-5 mt-lg-0">NURU; The fight Against FGM</h2>
+                <p class="pxp-text-light mt-3 mt-lg-4">An educational and empowering tool for collective youth
+                    engagement to fight FGM. <br> Nuru, to mean light and derived from the name of a main character from
+                    a 3D animation series against female genital mutilation (FGM) is an educational and empowering tool
+                    for collective youth engagement to fight FGM.</p>
+                <a href="#" class="pxp-primary-cta text-uppercase mt-3 mt-md-5 pxp-animate">Learn more</a>
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5 order-first order-lg-last">
+                <div class="pxp-cta-3-image pxp-cover rounded-lg"
+                    style="background-image: url('{% static 'images/cta-section-2.jpg' %}');"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pxp-cta-3 mt-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="pxp-cta-3-image pxp-cover rounded-lg"
+                    style="background-image: url('{% static 'images/cta-section-1.jpg' %}');"></div>
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <h2 class="pxp-section-h2 mt-3 mt-md-5 mt-lg-0">Journalists; AMR communication frontliners.</h2>
+                <p class="pxp-text-light mt-3 mt-lg-4">This is an in-depth Antimicrobial resistance (AMR) course for
+                    journalism students and young journalists across the country, it is designed to be a three stages
+                    AMR course; Beginner knowledge on AMR, an intermediate and advance knowledge coupled with an
+                    in-depth systematic nurturing program and AMR based content dissemination among the Tanzanian
+                    community.</p>
+                <a href="#" class="pxp-primary-cta text-uppercase mt-3 mt-md-5 pxp-animate">Learn more</a>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="pxp-services-columns mt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="pxp-section-h2 text-center">Why Afyatoon Exists</h2>
+            </div>
+            <div class="col-12">
+                <div class="row mt-4 mt-md-5">
+                    <div class="col-md-4">
+                        <div class="pxp-services-columns-item text-center mb-3 mb-md-4">
+                            <div class="pxp-services-columns-item-fig">
+                                <img src="{% static 'images/vision.svg' %}" alt="Find your future home">
+                            </div>
+                            <h3 class="mt-3">Vision</h3>
+                            <p class="pxp-text-light">An empowered community with correct socio-behavioural practice
+                                information and knowledge towards better health practice obtained by using entertaining
+                                visual animations.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pxp-services-columns-item text-center mb-3 mb-md-4">
+                            <div class="pxp-services-columns-item-fig">
+                                <img src="{% static 'images/mission.svg' %}" alt="Experienced agents">
+                            </div>
+                            <h3 class="mt-3">Mission</h3>
+                            <p class="pxp-text-light">To bring informative and empowering community education to the
+                                communities’ doorsteps, inspiring and impacting Behavioural changes towards good health
+                                practices through story based health information presented as visual animations</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pxp-services-columns-item text-center mb-3 mb-md-4">
+                            <div class="pxp-services-columns-item-fig">
+                                <img src="{% static 'images/values.svg' %}" alt="List your own property">
+                            </div>
+                            <h3 class="mt-3">Core Values</h3>
+                            <p class="pxp-text-light">Embracing the art of Co-creation, creativity, simplicity and
+                                content diversity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-100">
+    <h2 class="pxp-section-h2">Our Team</h2>
+    <p class="pxp-text-light">Meet our Leads.</p>
+
+    <div class="row mt-4 mt-md-5">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <a href="#" class="pxp-agents-1-item">
+                <div class="pxp-agents-1-item-fig-container rounded-lg">
+                    <div class="pxp-agents-1-item-fig pxp-cover"
+                        style="background-image: url('{% static 'images/edwin_539.png' %}'); background-position: top center">
+                    </div>
+                </div>
+                <div class="pxp-agents-1-item-details rounded-lg">
+                    <div class="pxp-agents-1-item-details-name">Edwin Ngula</div>
+                    <div class="pxp-agents-1-item-details-email">Chief Executive officer</div>
+                </div>
+                <div class="pxp-agents-1-item-rating"><span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span></span></div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <a href="#" class="pxp-agents-1-item">
+                <div class="pxp-agents-1-item-fig-container rounded-lg">
+                    <div class="pxp-agents-1-item-fig pxp-cover"
+                        style="background-image: url('{% static 'images/glory_123.png' %}'); background-position: top center">
+                    </div>
+                </div>
+                <div class="pxp-agents-1-item-details rounded-lg">
+                    <div class="pxp-agents-1-item-details-name">Glory Charles </div>
+                    <div class="pxp-agents-1-item-details-email">Chief operating officer</div>
+
+                </div>
+                <div class="pxp-agents-1-item-rating"><span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star-o"></span></span></div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <a href="#" class="pxp-agents-1-item">
+                <div class="pxp-agents-1-item-fig-container rounded-lg">
+                    <div class="pxp-agents-1-item-fig pxp-cover"
+                        style="background-image: url('{% static 'images/jofrey_325.png' %}'); background-position: top center">
+                    </div>
+                </div>
+                <div class="pxp-agents-1-item-details rounded-lg">
+                    <div class="pxp-agents-1-item-details-name">Jofrey Segeza</div>
+                    <div class="pxp-agents-1-item-details-email">Production Lead</div>
+                </div>
+                <div class="pxp-agents-1-item-rating"><span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span></span></div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <a href="#" class="pxp-agents-1-item">
+                <div class="pxp-agents-1-item-fig-container rounded-lg">
+                    <div class="pxp-agents-1-item-fig pxp-cover"
+                        style="background-image: url('{% static 'images/january_942.png' %}'); background-position: top center">
+                    </div>
+                </div>
+                <div class="pxp-agents-1-item-details rounded-lg">
+                    <div class="pxp-agents-1-item-details-name">January Butamo</div>
+                    <div class="pxp-agents-1-item-details-email">Director</div>
+                </div>
+                <div class="pxp-agents-1-item-rating"><span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star-o"></span></span></div>
+            </a>
+        </div>
+    </div>
+
+
+    <h4>Meet our Artists.</h4>
+
+    <div class="row mt-4 mt-md-5">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <a href="#" class="pxp-agents-1-item">
+                <div class="pxp-agents-1-item-fig-container rounded-lg">
+                    <div class="pxp-agents-1-item-fig pxp-cover"
+                        style="background-image: url('{% static 'images/john_037.png' %}'); background-position: top center">
+                    </div>
+                </div>
+                <div class="pxp-agents-1-item-details rounded-lg">
+                    <div class="pxp-agents-1-item-details-name">John Method </div>
+                    <div class="pxp-agents-1-item-details-email">Illustrator</div>
+                </div>
+                <div class="pxp-agents-1-item-rating"><span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span></span></div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <a href="#" class="pxp-agents-1-item">
+                <div class="pxp-agents-1-item-fig-container rounded-lg">
+                    <div class="pxp-agents-1-item-fig pxp-cover"
+                        style="background-image: url('{% static 'images/anwar_854.png' %}'); background-position: top center">
+                    </div>
+                </div>
+                <div class="pxp-agents-1-item-details rounded-lg">
+                    <div class="pxp-agents-1-item-details-name">Anwar Adams </div>
+                    <div class="pxp-agents-1-item-details-email"> Sound Artist</div>
+
+                </div>
+                <div class="pxp-agents-1-item-rating"><span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star"></span><span
+                            class="fa fa-star"></span><span class="fa fa-star-o"></span></span></div>
+            </a>
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

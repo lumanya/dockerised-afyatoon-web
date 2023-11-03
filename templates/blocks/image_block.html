@@ -1,0 +1,7 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="pxp-blog-post-hero mt-4 mt-md-5">
+    
+    {% image self.image original as img %}
+    <div class="pxp-blog-post-hero-fig pxp-cover" style="background-image: url({{ img.url }}); background-position: 50% 50%;"></div>
+</div>

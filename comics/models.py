@@ -114,8 +114,8 @@ class ComicSeries(Page):
     )
     created_date = models.DateField("Created date", blank=False, null=True, auto_now=True)
     updated_date = models.DateField("Updated date", blank=False, null=True, auto_now=True)
-    category = models.ForeignKey(Category, related_name='categories', on_delete=models.SET_NULL, null=True)
-    author = models.ForeignKey(Author, related_name='authors', on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, related_name='animation_categories', on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(Author, related_name='animation_authors', on_delete=models.SET_NULL, null=True)
 
     content_panels = [
         MultiFieldPanel([
@@ -136,7 +136,7 @@ class ComicSeries(Page):
         context['episodes'] = ComicSeries.get_descendants(self).live().public().order_by('-first_published_at')
         return context
     
-    template = 'home.html'
+    template = 'comics/comic_series.html'
 
                   
 

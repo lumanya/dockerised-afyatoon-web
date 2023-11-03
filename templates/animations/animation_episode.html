@@ -9,7 +9,9 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-5 col-md-2">
-                <a href="/" class="pxp-logo text-decoration-none"><img class="pxp-logo" src="{% static 'images/logo2.png' %}" alt=""></a>
+                <a href="/" class="pxp-logo text-decoration-none">
+                    <img class="pxp-logo" src="{% static 'images/logo2.png' %}" alt="">
+                </a>
                 
             </div>
             <div class="col-2 col-md-8 text-center">
@@ -36,8 +38,8 @@
                     <li class="list-inline-item">
                         <a href="#">Discover</a>
                         <ul class="pxp-nav-sub rounded-lg">
-                            <li><a href="/">Community</a></li>
-                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="agents.html">Community</a></li>
+                            <li><a href="single-agent.html">Blog</a></li>
                         </ul>
                     </li>
                     <li class="list-inline-item">
@@ -80,28 +82,48 @@
             </div>
         </div>
 
-        <div class="pxp-blog-post-hero mt-4 mt-md-5">
-            {% image page.series_image original as img %}
-            <div class="pxp-blog-post-hero-fig pxp-cover" style="background-image: url({{ img.url }}); background-position: 50% 50%;"></div>
+        <div class="container mt-100">
+            <div class="row">
+                <div class="col-sm-12 col-lg-1">
+                    <div class="pxp-blog-post-share">
+                        <div class="pxp-blog-post-share-label">Share</div>
+                        <ul class="list-unstyled mt-3">
+                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fa fa-pinterest"></span></a></li>
+                            <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-10">
+                    
+                    <div class="pxp-blog-post-block pxp-full mt-4 mt-md-5">
+                        {% image page.episode_image original as img %}
+                        <a href="javascript:void(0);" class="pxp-blog-post-video pxp-cover" style="background-image: url({{ img.url }}); background-position: 50% 50%;"></a>
+                        <iframe width="889" height="500" src="{{ page.video }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; border: 0 none;"></iframe>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
 
-     
-
         <div class="container mt-100">
-            <h2 class="pxp-section-h2">Episodes</h2>
+            <h2 class="pxp-section-h2">Other Episodes</h2>
             <div class="row mt-4 mt-md-5">
                 {% for episode in episodes %}
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <a href="{{ episode.url }}" class="pxp-posts-1-item">
                         <div class="pxp-posts-1-item-fig-container">
-                            {% image episode.specific.episode_image original as img %}
+                            {% image episode.episode_image original as img %}
                             <div class="pxp-posts-1-item-fig pxp-cover" style="background-image: url({{ img.url }});">
                             </div>
                         </div>
                         <div class="pxp-posts-1-item-details">
                             <div class="pxp-posts-1-item-details-category">{{ episode.get_parent.title }}</div>
-                            <div class="pxp-posts-1-item-details-title">Episode - {{ episode.specific.episode_number }} </div>
-                            <div class="pxp-posts-1-item-details-date mt-2">{{ episode.specific.created_date }}</div>
+                            <div class="pxp-posts-1-item-details-title">Episode - {{ episode.episode_number }} </div>
+                            <div class="pxp-posts-1-item-details-date mt-2">{{ episode.created_date }}</div>
                             <div class="pxp-posts-1-item-cta text-uppercase">Read Comic</div>
                         </div>
                     </a>

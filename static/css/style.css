@@ -399,6 +399,7 @@ h1.pxp-page-header {
     padding: 0 30px;
 }
 .pxp-logo {
+    height: 60px;
     font-weight: 900;
     color: #fff;
     font-size: 22px;
@@ -1585,6 +1586,39 @@ h1.pxp-page-header {
     box-shadow: 0px 15px 30px rgba(0,0,0,0.10);
     margin-bottom: 30px;
 }
+
+/* Custom css */
+.pxp-areas-1-item:after {
+    content: "\f04b";
+    font-family: FontAwesome;
+    background-color: #fff;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.16);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    overflow: hidden;
+    text-align: center;
+    line-height: 64px;
+    padding-left: 3px;
+    font-size: 20px;
+    color: #333;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.pxp-areas-1-item:hover:after {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+/* end of custom csss */
+
 .pxp-areas-1-item-fig {
     position: absolute;
     top: 0;
@@ -2666,9 +2700,14 @@ a.pxp-areas-carousel-item:hover .pxp-areas-carousel-item-fig {
     margin-left: 20px;
 }
 .pxp-services-columns .pxp-services-columns-item-fig img {
-    height: 80px;
+    height: 200px;
     width: auto;
 }
+
+/*  custom css */
+
+
+/* end of custom css */
 .pxp-services-columns .pxp-services-columns-item-fig span {
     font-size: 80px;
     line-height: 80px;

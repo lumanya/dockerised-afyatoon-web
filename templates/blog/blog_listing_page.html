@@ -4,13 +4,13 @@
 {% block title %}{% endblock %}
 
 {% block heading %}
-
-<div class="pxp-header fixed-top pxp-animate pxp-no-bg">
+<div class="pxp-header fixed-top pxp-animate">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-5 col-md-2">
-                <a href="/" class="pxp-logo text-decoration-none"><img class="pxp-logo" src="{% static 'images/logo2.png' %}" alt=""></a>
-                
+                <a href="/" class="pxp-logo text-decoration-none"><img class="pxp-logo"
+                        src="{% static 'images/logo2.png' %}" alt=""></a>
+
             </div>
             <div class="col-2 col-md-8 text-center">
                 <ul class="pxp-nav list-inline">
@@ -28,7 +28,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a href="#">Therapist Hub</a>
-                        <ul class="pxp-nav-sub rounded-lg">                          
+                        <ul class="pxp-nav-sub rounded-lg">
                             <li><a href="#">For Therapist</a></li>
                             <li><a href="#">Find Therapist</a></li>
                         </ul>
@@ -43,8 +43,8 @@
                     <li class="list-inline-item">
                         <a href="{% url 'about' %}">About Us</a>
 
-                    </li>                
-                   
+                    </li>
+
                     <li class="list-inline-item pxp-is-last"><a href="{% url 'contact' %}">Contact Us</a></li>
                     <li class="list-inline-item pxp-has-btns">
                         <div class="pxp-user-btns">
@@ -62,85 +62,41 @@
         </div>
     </div>
 </div>
-
 {% endblock heading %}
-
 
 {% block content %}
 
+<div class="pxp-hero pxp-hero-small vh-50">
+    <div class="pxp-hero-bg pxp-cover"
+        style="background-image: url('{% static 'images/d12-home-hero-1920x1280.jpg' %}');"></div>
+    <div class="pxp-hero-opacity" style="background: rgba(0,0,0,0.1);"></div>
+    <div class="pxp-hero-caption pxp-hero-caption-bottom-left pxp-is-small container ">
+        <h1 class="text-white">We digitize health content</h1>
+        <p class="pxp-text-light text-white mb-0">Embracing the art of Co-creation, creativity, simplicity and content
+            diversity.</p>
+    </div>
+</div>
+
 <div class="pxp-content">
-    <div class="pxp-blog-posts pxp-content-wrapper mt-100">
-        <div class="container">
-            <h1 class="pxp-page-header">Latest Series</h1>
-            <p class="pxp-text-light">Read our latest Comics, Digital Health Content Designed and create by Afyatoon</p>
+    <div class="pxp-blog-posts pxp-content-wrapper mt-10">
+        <div class="container">            
 
-            <div class="pxp-blog-posts-carousel-1 mt-4 mt-md-5">
-                <div id="pxp-blog-posts-carousel-1-img" class="carousel slide pxp-blog-posts-carousel-1-img" data-ride="carousel" data-pause="false" data-interval="false">
-                    <div class="carousel-inner">
-                        {% for series in series_list %}
-                        <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}" data-slide="{{ forloop.counter0 }}">
-                            {% image series.series_image original as img %}
-                            <div class="pxp-hero-bg pxp-cover" style="background-image: url({{ img.url }}); background-position: 50% 50%;"></div>
-                        </div>
-                       
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <div class="pxp-carousel-controls">
-                    <a class="pxp-carousel-control-prev" role="button" data-slide="prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32.414" height="20.828" viewBox="0 0 32.414 20.828">
-                            <g id="Group_30" data-name="Group 30" transform="translate(-1845.086 -1586.086)">
-                                <line id="Line_2" data-name="Line 2" x1="30" transform="translate(1846.5 1596.5)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"></line>
-                                <line id="Line_3" data-name="Line 3" x1="9" y2="9" transform="translate(1846.5 1587.5)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"></line>
-                                <line id="Line_4" data-name="Line 4" x1="9" y1="9" transform="translate(1846.5 1596.5)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"></line>
-                            </g>
-                        </svg>
-                    </a>
-                    <a class="pxp-carousel-control-next" role="button" data-slide="next">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32.414" height="20.828" viewBox="0 0 32.414 20.828">
-                            <g id="Symbol_1_1" data-name="Symbol 1 – 1" transform="translate(-1847.5 -1589.086)">
-                                <line id="Line_5" data-name="Line 2" x2="30" transform="translate(1848.5 1599.5)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"></line>
-                                <line id="Line_6" data-name="Line 3" x2="9" y2="9" transform="translate(1869.5 1590.5)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"></line>
-                                <line id="Line_7" data-name="Line 4" y1="9" x2="9" transform="translate(1869.5 1599.5)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"></line>
-                            </g>
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="pxp-blog-posts-carousel-1-caption-container">
-                    <div id="pxp-blog-posts-carousel-1-caption" class="carousel slide pxp-blog-posts-carousel-1-caption" data-ride="carousel" data-pause="false" data-interval="false">
-                        <div class="carousel-inner">
-                            {% for series in series_list %}
-                            <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}" data-slide="{{ forloop.counter0 }}">
-                                <div class="pxp-blog-posts-carousel-1-caption-category">{{ series.category }}</div>
-                                <div class="pxp-blog-posts-carousel-1-caption-title">{{ series.title }}</div>
-                                <div class="pxp-blog-posts-carousel-1-caption-summary">{{ series.description | richtext }}</div>
-                                <a href="{{ series.url }}" class="pxp-primary-cta text-uppercase mt-3 mt-md-4 pxp-animate">Read Comic</a>
-                            </div>
-                           {% endfor %}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pxp-blog-posts-carousel-1-badge">Featured</div>
-            </div>
-
-            <div class="row mt-200">
+            
+            <div class="row mt-40">
                 <div class="col-sm-12 col-lg-9">
                     <div class="row">
-                        {% for series in series_list %}
+                        {% for blog in blog_list %}
                         <div class="col-sm-12 col-md-6">
-                            <a href="{{ series.url }}" class="pxp-posts-1-item">
+                            <a href="{{ blog.url }}" class="pxp-posts-1-item">
                                 <div class="pxp-posts-1-item-fig-container">
-                                    {% image series.series_image original as img %}
+                                    {% image blog.blog_image original as img %}
                                     <div class="pxp-posts-1-item-fig pxp-cover" style="background-image: url({{ img.url }});"></div>
                                 </div>
                                 <div class="pxp-posts-1-item-details">
-                                    <div class="pxp-posts-1-item-details-category">{{ series.category }}</div>
-                                    <div class="pxp-posts-1-item-details-title">{{ series.title }}</div>
-                                    <div class="pxp-posts-1-item-details-date mt-2">{{ series.created_date }}</div>
-                                    <div class="pxp-posts-1-item-cta text-uppercase">Read Comic</div>
+                                    <div class="pxp-posts-1-item-details-category">{{ blog.blog_author }}</div>
+                                    <div class="pxp-posts-1-item-details-title">{{ blog.title }}</div>
+                                    <div class="pxp-posts-1-item-details-date mt-2">{{ blog.created_date }}</div>
+                                    <div class="pxp-posts-1-item-cta text-uppercase">Read Blog</div>
                                 </div>
                             </a>
                         </div>

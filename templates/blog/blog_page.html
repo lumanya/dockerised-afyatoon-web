@@ -9,8 +9,9 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-5 col-md-2">
-                <a href="/" class="pxp-logo text-decoration-none"><img class="pxp-logo" src="{% static 'images/logo2.png' %}" alt=""></a>
-                
+                <a href="/" class="pxp-logo text-decoration-none"><img class="pxp-logo"
+                        src="{% static 'images/logo2.png' %}" alt=""></a>
+
             </div>
             <div class="col-2 col-md-8 text-center">
                 <ul class="pxp-nav list-inline">
@@ -28,7 +29,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a href="#">Therapist Hub</a>
-                        <ul class="pxp-nav-sub rounded-lg">                          
+                        <ul class="pxp-nav-sub rounded-lg">
                             <li><a href="#">For Therapist</a></li>
                             <li><a href="#">Find Therapist</a></li>
                         </ul>
@@ -43,8 +44,8 @@
                     <li class="list-inline-item">
                         <a href="{% url 'about' %}">About Us</a>
 
-                    </li>                
-                   
+                    </li>
+
                     <li class="list-inline-item pxp-is-last"><a href="{% url 'contact' %}">Contact Us</a></li>
                     <li class="list-inline-item pxp-has-btns">
                         <div class="pxp-user-btns">
@@ -74,39 +75,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-9 col-lg-7">
-                    <div class="pxp-blog-post-category"><span>{{ page.created_date }}</span><span>{{ page.get_parent.title }}</span></div>
-                    <h1 class="pxp-page-header">{{ page.description | richtext }}</h1>
+                    <div class="pxp-blog-post-category"><span>{{ page.created_date }}</span><span>{{ page.blog_author }}</span></div>
+                    <h1 class="pxp-page-header">{{ page.title }}</h1>
                 </div>
             </div>
         </div>
 
-        <div class="pxp-blog-post-hero mt-4 mt-md-5">
-            {% image page.series_image original as img %}
-            <div class="pxp-blog-post-hero-fig pxp-cover" style="background-image: url({{ img.url }}); background-position: 50% 50%;"></div>
-        </div>
-
-     
-
         <div class="container mt-100">
-            <h2 class="pxp-section-h2">Episodes</h2>
-            <div class="row mt-4 mt-md-5">
-                {% for episode in episodes %}
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <a href="{{ episode.url }}" class="pxp-posts-1-item">
-                        <div class="pxp-posts-1-item-fig-container">
-                            {% image episode.specific.episode_image original as img %}
-                            <div class="pxp-posts-1-item-fig pxp-cover" style="background-image: url({{ img.url }});">
-                            </div>
-                        </div>
-                        <div class="pxp-posts-1-item-details">
-                            <div class="pxp-posts-1-item-details-category">{{ episode.get_parent.title }}</div>
-                            <div class="pxp-posts-1-item-details-title">Episode - {{ episode.specific.episode_number }} </div>
-                            <div class="pxp-posts-1-item-details-date mt-2">{{ episode.specific.created_date }}</div>
-                            <div class="pxp-posts-1-item-cta text-uppercase">Read Comic</div>
-                        </div>
-                    </a>
+            <div class="row">
+                <div class="col-sm-12 col-lg-1">
+                    <div class="pxp-blog-post-share">
+                        <div class="pxp-blog-post-share-label">Share</div>
+                        <ul class="list-unstyled mt-3">
+                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fa fa-pinterest"></span></a></li>
+                            <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-                {% endfor %}
+                <div class="col-sm-12 col-lg-10">
+               
+                    {% for block in self.content %}
+
+                    {% include_block block %}
+
+                    {% endfor %}
+
+                </div>
             </div>
         </div>
 
@@ -124,19 +121,24 @@
                                     <div class="media-body">
                                         <h5>Scott Goodwin</h5>
                                         <div class="pxp-blog-post-comments-date">April 9, 2021 at 2:33 pm</div>
-                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra
-                                            turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
+                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                            ante
+                                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                                            viverra
+                                            turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
+                                            lacinia
                                             congue felis in faucibus.</p>
 
                                         <div class="media mt-2 mt-md-3">
                                             <img src="{% static 'images/customer-3.jpg' %}" class="mr-3" alt="...">
                                             <div class="media-body">
                                                 <h5>Alayna Becker</h5>
-                                                <div class="pxp-blog-post-comments-date">April 9, 2021 at 2:33 pm</div>
+                                                <div class="pxp-blog-post-comments-date">April 9, 2021 at 2:33 pm
+                                                </div>
                                                 <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
                                                     scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                                                    vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                                                    vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                                                    nisi
                                                     vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                                             </div>
                                         </div>
@@ -147,9 +149,12 @@
                                     <div class="media-body">
                                         <h5>Erika Tillman</h5>
                                         <div class="pxp-blog-post-comments-date">April 9, 2021 at 2:33 pm</div>
-                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra
-                                            turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
+                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                            ante
+                                            sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                                            viverra
+                                            turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
+                                            lacinia
                                             congue felis in faucibus.</p>
                                     </div>
                                 </div>

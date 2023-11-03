@@ -12,6 +12,8 @@ from wagtail.snippets.models import register_snippet
 from wagtail import hooks
 
 from comics.models import ComicSeriesPage, ComicEpisode, Author, ComicSeries, Category
+from animations.models import AnimationSeriesPage, AnimationEpisode, AnimationSeries
+from blog.models import BlogListingPage, BlogPage
 
 
 
@@ -21,12 +23,14 @@ class HomePage(Page):
 
     parent_page_type = ['wagtailcore.Page']
 
-    subpage_types = ['comics.ComicSeriesPage']
+    subpage_types = ['comics.ComicSeriesPage', 'animations.AnimationSeriesPage', 'blog.BlogListingPage']
 
     def get_context(self, request, *args, **kwargs):
         context =  super().get_context(request, *args, **kwargs)
         context['episodes'] = ComicEpisode.objects.live().public().order_by('-first_published_at')[:10]
         context['series_list'] = ComicSeries.objects.live().public().order_by('-first_published_at')[:10]
+        context['animation_episodes'] = AnimationEpisode.objects.live().public().order_by('-first_published_at')[:10]
+        context['animation_series_list'] = AnimationSeries.objects.live().public().order_by('-first_published_at')[:10]
         context['categories'] = Category.objects.all()
         return context
     

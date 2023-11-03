@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # wagtail
     'wagtail.contrib.forms',
@@ -55,12 +56,17 @@ INSTALLED_APPS = [
     'taggit',
     'modelcluster',
 
+    # Third Party app
+    'allauth',
+    'allauth.account',
+
     # Local apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'animations.apps.AnimationsConfig',
     'comics.apps.ComicsConfig',
     'home.apps.HomeConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +80,9 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+
+    # Add the account middleware:
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'afyatoon.urls'
@@ -106,7 +115,7 @@ DATABASES = {
         'NAME': 'afyatoon_web',
         'USER': 'afyatoon_admin',
         'PASSWORD': 'afyatoon',
-        'HOST': 'db',
+        #'HOST': 'db',
         'PORT': '5432',
         
     }
@@ -166,3 +175,18 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # wagtail settings
 WAGTAIL_SITE_NAME = 'AfyaToon'
 WAGTAILADMIN_BASE_URL = '127.0.0.0:8000'
+
+
+# django-allauth config
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+'django.contrib.auth.backends.ModelBackend',
+'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

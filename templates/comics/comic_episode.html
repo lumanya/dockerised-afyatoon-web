@@ -9,48 +9,44 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-5 col-md-2">
-                <a href="/" class="pxp-logo text-decoration-none">Afyatoon.</a>
+                <a href="/" class="pxp-logo text-decoration-none"><img class="pxp-logo"
+                        src="{% static 'images/logo2.png' %}" alt=""></a>
+
             </div>
             <div class="col-2 col-md-8 text-center">
                 <ul class="pxp-nav list-inline">
                     <li class="list-inline-item">
                         <a href="/">Home</a>
-                        
+
                     </li>
                     <li class="list-inline-item">
-                        <a href="/comic-series">Comics</a>
-                        
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">Properties</a>
+                        <a href="#">Afyatoon Library</a>
                         <ul class="pxp-nav-sub rounded-lg">
-                            <li><a href="properties.html">All Properties</a></li>
-                            <li><a href="single-property.html">Single Property</a></li>
-                            <li><a href="submit-property.html">Submit New Property</a></li>
+                            <li><a href="/comic-series">Comics</a></li>
+                            <li><a href="/animation-series">Animations</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Therapist Hub</a>
+                        <ul class="pxp-nav-sub rounded-lg">
+                            <li><a href="#">For Therapist</a></li>
+                            <li><a href="#">Find Therapist</a></li>
                         </ul>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#">Agents</a>
+                        <a href="#">Discover</a>
                         <ul class="pxp-nav-sub rounded-lg">
-                            <li><a href="agents.html">All Agents</a></li>
-                            <li><a href="single-agent.html">Single Agent</a></li>
+                            <li><a href="/">Community</a></li>
+                            <li><a href="/blog">Blog</a></li>
                         </ul>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#">Blog</a>
-                        <ul class="pxp-nav-sub rounded-lg">
-                            <li><a href="blog.html">All Blog Posts</a></li>
-                            <li><a href="single-post.html">Single Blog Post</a></li>
-                        </ul>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">Themes</a>
-                        <ul class="pxp-nav-sub rounded-lg">
-                            <li><a href="single-post.html">Light</a></li>
-                            <li><a href="http://pixelprime.co/themes/resideo/dark/single-post.html">Dark</a></li>
-                        </ul>
-                    </li>
-                    <li class="list-inline-item pxp-is-last"><a href="contact.html">Contact Us</a></li>
+                        <a href="{% url 'about' %}">About Us</a>
+
+                    </li>                
+                   
+                    <li class="list-inline-item pxp-is-last"><a href="{% url 'contact' %}">Contact Us</a></li>
                     <li class="list-inline-item pxp-has-btns">
                         <div class="pxp-user-btns">
                             <a href="#" class="pxp-user-btns-signup pxp-signup-trigger">Sign Up</a>
