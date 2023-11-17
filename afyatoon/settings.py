@@ -59,14 +59,23 @@ INSTALLED_APPS = [
     # Third Party app
     'allauth',
     'allauth.account',
+    "crispy_forms",
+    "crispy_bootstrap5",
+    "bootstrap4",
+    "bootstrap_datepicker_plus",
+ 
+   
 
     # Local apps
-    'users.apps.UsersConfig',
+   
     'pages.apps.PagesConfig',
     'animations.apps.AnimationsConfig',
     'comics.apps.ComicsConfig',
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
+    'users.apps.UsersConfig',
+    'therapists.apps.TherapistsConfig',
+    
 ]
 
 MIDDLEWARE = [
@@ -115,7 +124,7 @@ DATABASES = {
         'NAME': 'afyatoon_web',
         'USER': 'afyatoon_admin',
         'PASSWORD': 'afyatoon',
-        #'HOST': 'db',
+        'HOST': 'db',
         'PORT': '5432',
         
     }
@@ -190,3 +199,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+# django-crispy-forms
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+

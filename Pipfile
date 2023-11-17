@@ -11,6 +11,12 @@ django-crispy-forms = "*"
 wagtail = "*"
 whitenoise = "*"
 gunicorn = "*"
+django-bootstrap5 = "*"
+crispy-bootstrap5 = "*"
+pillow = "*"
+django-datetime-widget = "*"
+django-bootstrap-datepicker-plus = "*"
+django-bootstrap4 = "*"
 
 [dev-packages]
 

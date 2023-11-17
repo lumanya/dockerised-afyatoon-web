@@ -30,8 +30,9 @@
                     <li class="list-inline-item">
                         <a href="#">Therapist Hub</a>
                         <ul class="pxp-nav-sub rounded-lg">
+                            <li><a href="{% url 'therapists' %}">Find Therapist</a></li>
                             <li><a href="#">For Therapist</a></li>
-                            <li><a href="#">Find Therapist</a></li>
+
                         </ul>
                     </li>
                     <li class="list-inline-item">
@@ -44,28 +45,29 @@
                     <li class="list-inline-item">
                         <a href="{% url 'about' %}">About Us</a>
 
-                    </li>                
-                   
-                    <li class="list-inline-item pxp-is-last"><a href="{% url 'contact' %}">Contact Us</a></li>
-                    <li class="list-inline-item pxp-has-btns">
-                        <div class="pxp-user-btns">
-                            <a href="#" class="pxp-user-btns-signup pxp-signup-trigger">Sign Up</a>
-                            <a href="#" class="pxp-user-btns-login pxp-signin-trigger">Sign In</a>
-                        </div>
                     </li>
+
+                    <li class="list-inline-item pxp-is-last"><a href="{% url 'contact' %}">Contact Us</a></li>
+                   
                 </ul>
             </div>
+            {% if user.is_authenticated %}
+            <li class="list-inline-item"><a href="{% url 'account_logout' %}">Log Out</a></li>
+            {% else %}
             <div class="col-5 col-md-2 text-right">
-                <a href="javascript:void(0);" class="pxp-header-nav-trigger"><span class="fa fa-bars"></span></a>
-                <a href="javascript:void(0);" class="pxp-header-user pxp-signin-trigger"><span
-                        class="fa fa-user-o"></span></a>
+                <a href="" class="pxp-header-nav-trigger">
+                    <span class="fa fa-bars"></span>
+                </a>
+                <a href="{% url 'account_login' %}" class="pxp-header-user ">
+                    <span class="fa fa-user-o"></span>
+                </a>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
 
 {% endblock heading %}
-
 
 {% block content %}
 
@@ -75,8 +77,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-9 col-lg-7">
-                    <div class="pxp-blog-post-category"><span>{{ page.created_date }}</span><span>{{
-                            page.get_parent.title }}</span></div>
+                    <div class="pxp-blog-post-category"><span>{{ page.created_date }}</span><span>{{ page.get_parent.title }}</span></div>
                     <h1 class="pxp-page-header">{{ page.description | richtext }}</h1>
                 </div>
             </div>

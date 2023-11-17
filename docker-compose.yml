@@ -5,7 +5,7 @@ services:
   web:
     build: .
     #command: python /afyatoon_web/manage.py runserver 0.0.0.0:8000
-    command: gunicorn afyatoon.wsgi:application -b 0.0.0.0:8000
+    command: gunicorn afyatoon.wsgi:application -b 0.0.0.0:8000 --reload
     volumes:
       - .:/afyatoon_web
     ports:

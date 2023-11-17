@@ -1,0 +1,148 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block title %}{% endblock %}
+
+
+{% block heading %}
+<div class="pxp-header fixed-top pxp-animate">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-5 col-md-2">
+                <a href="/" class="pxp-logo text-decoration-none"><img class="pxp-logo" src="{% static 'images/logo2.png' %}" alt=""></a>
+                
+            </div>
+            <div class="col-2 col-md-8 text-center">
+                <ul class="pxp-nav list-inline">
+                    <li class="list-inline-item">
+                        <a href="/">Home</a>
+
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Afyatoon Library</a>
+                        <ul class="pxp-nav-sub rounded-lg">
+                            <li><a href="/comic-series">Comics</a></li>
+                            <li><a href="/animation-series">Animations</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Therapist Hub</a>
+                        <ul class="pxp-nav-sub rounded-lg">
+                            <li><a href="{% url 'therapists' %}">Find Therapist</a></li>
+                            <li><a href="#">For Therapist</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Discover</a>
+                        <ul class="pxp-nav-sub rounded-lg">
+                            <li><a href="/">Community</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{% url 'about' %}">About Us</a>
+
+                    </li>                
+                   
+                    <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                   
+                </ul>
+            </div>
+
+            {% if user.is_authenticated %}
+            <li class="list-inline-item"><a href="{% url 'account_logout' %}">Log Out</a></li>
+            {% else %}
+            <div class="col-5 col-md-2 text-right">
+                <a href="" class="pxp-header-nav-trigger">
+                    <span class="fa fa-bars"></span>
+                </a>
+                <a href="{% url 'account_login' %}" class="pxp-header-user ">
+                    <span class="fa fa-user-o"></span>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock heading %}
+
+
+{% block content %}
+
+<div class="pxp-hero pxp-hero-small vh-50">
+    <div class="pxp-hero-bg pxp-cover"
+        style="background-image: url('{% static 'images/afyatoon-team.jpeg' %}');"></div>
+    <div class="pxp-hero-opacity" style="background: rgba(0,0,0,0.1);"></div>
+    <div class="pxp-hero-caption pxp-hero-caption-bottom-left pxp-is-small container ">
+        <h1 class="text-white">We digitize health content</h1>
+        <p class="pxp-text-light text-white mb-0">Embracing the art of Co-creation, creativity, simplicity and content
+            diversity.</p>
+    </div>
+</div>
+
+<!-- community by categories Section -->
+<section class="comics-library mt-100">
+    <div class="container">
+        <h3 class="text-center">Find a therapist and book your appointment</h3>
+        <h4 style="padding-left: 53px;">Available therapists</h4>
+        <div class="container">
+            <div class="row ">
+
+                {% for therapist in therapists %}
+                <div class="container col-md-4">
+                    <div class="card text-center shadow mb-4 sectione">
+                        <div class="team-member">
+                            <img src="{{ therapist.profile_photo.url }}" width="200px" height="200px" alt="Avatar 2">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ therapist.full_name }}</h5>
+                            <p class="card-text">Psychologist</p>
+                            <a href="{% url 'appointment' therapist.id %}" class="btn btn-dark btn-block">Book an appointment</a>
+                            <!-- <div class="row mt-2">
+                                <div class="col-6">
+                                    <button class="btn btn-outline-dark btn-block">
+                                        <i class="fas fa-envelope"></i> Chat Now
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-dark btn-block">
+                                        <i class="fas fa-video"></i> Video Consult
+                                    </button>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="pxp-full pxp-cover pt-100 pb-100 mt-100"
+    style="background-image: url('{% static 'images/newsletter-1-fig.jpg' %}');">
+    <div class="container">
+        <h2 class="pxp-section-h2">Stay Up to Date</h2>
+        <p class="pxp-text-light">Subscribe to our newsletter to receive our weekly feed</p>
+        <div class="row mt-4 mt-md-5">
+            <div class="col-xs-12 col-sm-6">
+                <form action="http://pixelprime.co/themes/resideo/light/blog.html" class="pxp-newsletter-1-form">
+                    <input type="text" class="form-control" placeholder="Enter your email...">
+                    <a href="#" class="pxp-primary-cta text-uppercase pxp-animate mt-3 mt-md-4">Subscribe</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

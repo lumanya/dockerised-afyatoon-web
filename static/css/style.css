@@ -6985,3 +6985,12 @@ a.pxp-services-tabs-content-item:hover .pxp-services-tabs-content-item-cta {
         height: auto !important;
     }
 }
+
+/* This is custom style */
+
+
+.text-success {
+    color: green;  /* You can choose any color you prefer */
+    /* Add additional styles as needed */
+  }
+  
