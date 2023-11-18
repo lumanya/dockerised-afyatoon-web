@@ -50,21 +50,23 @@
                     </li>
 
                     <li class="list-inline-item pxp-is-last"><a href="{% url 'contact' %}">Contact Us</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="list-inline-item"><a href="{% url 'account_logout' %}">Log Out</a></li>
+                    {% endif %}
                    
+                  
+                    <li class="list-inline-item pxp-has-btns">
+                        <div class="pxp-user-btns">
+                            <a href="{% url 'account_login' %}" class="pxp-user-btns-signup pxp-signup-trigger">Sign Up</a>
+                            <a href="{% url 'account_login' %}" class="pxp-user-btns-login pxp-signin-trigger">Sign In</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
-            {% if user.is_authenticated %}
-            <li class="list-inline-item"><a href="{% url 'account_logout' %}">Log Out</a></li>
-            {% else %}
             <div class="col-5 col-md-2 text-right">
-                <a href="" class="pxp-header-nav-trigger">
-                    <span class="fa fa-bars"></span>
-                </a>
-                <a href="{% url 'account_login' %}" class="pxp-header-user ">
-                    <span class="fa fa-user-o"></span>
-                </a>
+                <a href="javascript:void(0);" class="pxp-header-nav-trigger"><span class="fa fa-bars"></span></a>
+                <a href="{% url 'account_login' %}" class="pxp-header-user pxp-signin-trigger"><span class="fa fa-user-o"></span></a>
             </div>
-            {% endif %}
         </div>
     </div>
 </div>

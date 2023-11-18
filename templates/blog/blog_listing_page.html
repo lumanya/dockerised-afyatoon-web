@@ -46,23 +46,24 @@
 
                     </li>                
                    
-                    <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li class="list-inline-item pxp-is-last"><a href="{% url 'contact' %}">Contact Us</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="list-inline-item"><a href="{% url 'account_logout' %}">Log Out</a></li>
+                    {% endif %}
                    
+                  
+                    <li class="list-inline-item pxp-has-btns">
+                        <div class="pxp-user-btns">
+                            <a href="{% url 'account_login' %}" class="pxp-user-btns-signup pxp-signup-trigger">Sign Up</a>
+                            <a href="{% url 'account_login' %}" class="pxp-user-btns-login pxp-signin-trigger">Sign In</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
-
-            {% if user.is_authenticated %}
-            <li class="list-inline-item"><a href="{% url 'account_logout' %}">Log Out</a></li>
-            {% else %}
             <div class="col-5 col-md-2 text-right">
-                <a href="" class="pxp-header-nav-trigger">
-                    <span class="fa fa-bars"></span>
-                </a>
-                <a href="{% url 'account_login' %}" class="pxp-header-user ">
-                    <span class="fa fa-user-o"></span>
-                </a>
+                <a href="javascript:void(0);" class="pxp-header-nav-trigger"><span class="fa fa-bars"></span></a>
+                <a href="{% url 'account_login' %}" class="pxp-header-user pxp-signin-trigger"><span class="fa fa-user-o"></span></a>
             </div>
-            {% endif %}
         </div>
     </div>
 </div>
@@ -72,7 +73,7 @@
 
 <div class="pxp-hero pxp-hero-small vh-50">
     <div class="pxp-hero-bg pxp-cover"
-        style="background-image: url('{% static 'images/afyatoon-team.jpeg' %}');"></div>
+        style="background-image: url('{% static 'images/afyatoon_team.png' %}');"></div>
     <div class="pxp-hero-opacity" style="background: rgba(0,0,0,0.1);"></div>
     <div class="pxp-hero-caption pxp-hero-caption-bottom-left pxp-is-small container ">
         <h1 class="text-white">We digitize health content</h1>
