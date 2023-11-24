@@ -1,5 +1,6 @@
 {% extends '_base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% load wagtailcore_tags wagtailimages_tags %}
 {% block title %}{% endblock %}
 
@@ -19,7 +20,7 @@
                         <a href="/">Home</a>
 
                     </li>
-                    <li class="list-inline-item">
+                    <li {% load crispy_forms_tags %}class="list-inline-item">
                         <a href="#">Afyatoon Library</a>
                         <ul class="pxp-nav-sub rounded-lg">
                             <li><a href="/comic-series">Comics</a></li>
@@ -39,7 +40,7 @@
                         <a href="#">Discover</a>
                         <ul class="pxp-nav-sub rounded-lg">
                             <li><a href="/">Community</a></li>
-                            <li><a href="/blog">Blog</a></li>
+                            {% load crispy_forms_tags %}    <li><a href="/blog">Blog</a></li>
                         </ul>
                     </li>
                     <li class="list-inline-item">
@@ -128,31 +129,19 @@
                     <h2 class="pxp-section-h2">Send Us A Message</h2>
                     <div class="pxp-contact-form mt-3 mt-md-4">
                         <div class="row">
-                            <div class="col-sm-12 col-md-6">
+                            <form class="mt-4" method="post">
+                                {% csrf_token %}
+                                {{ form|crispy }}
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="pxp-contact-form-name"
-                                        placeholder="Name">
+                                    <button type="submit" class="pxp-agent-contact-modal-btn">SEND MESSAGE</button>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="pxp-contact-form-email"
-                                        placeholder="Email">
-                                </div>
-                            </div>
 
-                            <div class="col-sm-12 col-md-8">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Phone (optional)"
-                                        id="pxp-contact-form-phone">
-                                </div>
-                            </div>
+                            </form>
+
+                        
                         </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="pxp-contact-form-message" rows="6"
-                                placeholder="Message"></textarea>
-                        </div>
-                        <a href="#" class="pxp-contact-form-btn">Send Message</a>
+                        
+            
                     </div>
                 </div>
                 <div class="col-sm-12 col-lg-6">

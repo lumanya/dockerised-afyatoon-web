@@ -35,6 +35,7 @@ urlpatterns = [
     # Local apps
     path('pages/', include('pages.urls')),
     path('therapists/', include('therapists.urls')),
+    path('contact/', include('contacts.urls')),
 
     path('', include(wagtail_urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

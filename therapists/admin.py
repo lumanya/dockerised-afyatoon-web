@@ -7,3 +7,5 @@ class AppointmentAdmin(admin.ModelAdmin):
 
 admin.site.register(Therapist)
 admin.site.register(Appointment, AppointmentAdmin)
+
+

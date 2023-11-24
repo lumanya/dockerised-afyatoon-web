@@ -35,6 +35,9 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.therapist.full_name} - {self.date_and_time}'
+    
+
+
 
     
 

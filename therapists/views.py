@@ -36,6 +36,17 @@ def appointment_success(request):
     return render(request, 'therapists/appointment_success.html')
 
 
+# def subscribe(request):
+#     form = SubscribeForm(request.POST)
+#     if request.method == 'POST':      
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, "Congratulations you have successfully Subscribed to our newsletter to receive our weekly feed")
+#             return redirect('appointment_succcess')
+
+#     return render(request, 'home.html', {'form': form})
+
+
 
 
 

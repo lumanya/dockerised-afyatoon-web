@@ -18,3 +18,7 @@ class AppointmentForm(forms.ModelForm):
                 'showTodayButton': True,
             }),
         }
+
+
+
+    

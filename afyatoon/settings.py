@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'therapists.apps.TherapistsConfig',
+    'contacts.apps.ContactsConfig',
     
 ]
 
