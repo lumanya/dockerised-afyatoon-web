@@ -1,11 +1,12 @@
 from django.contrib import admin
 
-from .models import Therapist, Appointment
+from .models import Therapist, Appointment, TimeSlot
 
 class AppointmentAdmin(admin.ModelAdmin):
-    list_display = ('therapist', 'date_and_time')
+    list_display = ('therapist', 'time_slot')
 
 admin.site.register(Therapist)
 admin.site.register(Appointment, AppointmentAdmin)
+admin.site.register(TimeSlot)
 
 

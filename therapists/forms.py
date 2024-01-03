@@ -11,13 +11,8 @@ class AppointmentForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
-        fields = ['therapist', 'date_and_time', 'additional_info']
-        widgets = {
-            'date_and_time': DateTimePickerInput(options={
-                'format': 'YYYY-MM-DD HH:mm',  
-                'showTodayButton': True,
-            }),
-        }
+        fields = ['therapist', 'time_slot', 'additional_info']
+       
 
 
 
